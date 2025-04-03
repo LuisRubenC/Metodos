@@ -122,6 +122,6 @@ Este documento compara dos implementaciones de un sistema de registro de estudia
 | Eliminación de estudiantes | Implementada directamente en `switch` | Modularizada para mejor legibilidad |
 
 ## Conclusión
-La versión del código en la imagen es más compacta pero menos modular, ya que toda la lógica está dentro del `main`. En cambio, el código actual usa métodos separados, lo que facilita su mantenimiento y expansión. La versión modular es preferible para proyectos más grandes y escalables, mientras que la compacta es útil para soluciones rápidas y pequeñas aplicaciones de consola.
+La versión del código es más compacta pero menos modular, ya que toda la lógica está dentro del `main`. En cambio, el código actual usa métodos separados, lo que facilita su mantenimiento y expansión. La versión modular es preferible para proyectos más grandes y escalables, mientras que la compacta es útil para soluciones rápidas y pequeñas aplicaciones de consola.
 
 
