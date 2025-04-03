@@ -114,12 +114,22 @@ Este documento compara dos implementaciones de un sistema de registro de estudia
 - Se cierran los recursos utilizados, como el `Scanner`.
 
 ## Diferencias Clave
-| Característica            | Código en la Imagen                          | Código Actual                                  |
-|--------------------------|----------------------------------------------|-----------------------------------------------|
-| Definición de la clase   | Usa `SistemaRegistroEstudiantes`            | Usa `SistemaRegistroEstudiantes`                                |
-| Estructura de `main`     | Contiene toda la lógica en el `switch`      | Implementa métodos separados para modularidad |
-| Búsqueda por matrícula   | Implementada dentro del `switch`            | Implementada con un método separado        |
-| Eliminación de estudiantes | Implementada directamente en `switch` | Modularizada para mejor legibilidad |
+| Característica             | Código en la Imagen                                  | Código Actual                                  |
+|----------------------------|------------------------------------------------------|------------------------------------------------|
+| Modularidad                | Lógica integrada en el `main`, sin separación en métodos. | Separa la lógica en métodos para mejor organización. |
+| Manejo de entrada de usuario | Validación dentro del bucle principal.               | Validación más estructurada con mejor control de flujo. |
+| Eliminación de estudiantes  | Implementada directamente en el `switch`.          | Modularizada para mejor legibilidad y reutilización. |
+| Estilo de programación      | Más compacto pero con lógica dentro del `main`.    | Más estructurado y fácil de mantener. |
+
+## Comparación de Casos en el Registro de Estudiantes
+A continuación, se presentan algunos escenarios comunes en el uso del sistema de registro de estudiantes y cómo se comporta cada versión del código:
+
+| Caso | Código en la Imagen | Código Actual |
+|------|---------------------|--------------|
+| Registro de un nuevo estudiante | Se almacena directamente en el arreglo sin verificación de duplicados. | Se puede mejorar con validación previa para evitar matrículas duplicadas. |
+| Búsqueda de un estudiante existente | Se recorre el arreglo y se compara la matrícula sin optimización. | Se podría optimizar con estructuras más eficientes, como HashMap. |
+| Eliminación de un estudiante | Se desplazan manualmente los elementos en el arreglo para llenar el espacio vacío. | Misma técnica, pero se puede mejorar con listas dinámicas para mayor eficiencia. |
+| Lista de estudiantes vacía | No maneja casos específicos para mostrar mensajes adecuados. | Incluye una verificación para informar al usuario cuando no hay registros. |
 
 ## Conclusión
 La versión del código es más compacta pero menos modular, ya que toda la lógica está dentro del `main`. En cambio, el código actual usa métodos separados, lo que facilita su mantenimiento y expansión. La versión modular es preferible para proyectos más grandes y escalables, mientras que la compacta es útil para soluciones rápidas y pequeñas aplicaciones de consola.
