@@ -19,4 +19,16 @@ public class JuegoAdivinanza {
 
 
  }
+ public static boolean verificarNumero(int numeroUsuario, int numeroAleatorio) {
+   if (numeroUsuario == numeroAleatorio) {
+      System.out.println("¡Felicidades! Has adivinado el número.");
+      return true;
+   } else if (numeroUsuario < numeroAleatorio) {
+      System.out.println("El número es mayor. Intenta de nuevo.");
+   } else {
+      System.out.println("El número es menor. Intenta de nuevo.");
+   }
+     return false;
+   }
+}
 }
