@@ -13,17 +13,24 @@ public class JuegoAdivinanza {
 
         System.out.println("¡Bienvenido al juego de adivinanza!");
         System.out.println("Debes adivinar un número entre 1 y 100.");
-        System.out.println("Tienes 10 intentos. ¡Buena suerte!");
+        System.out.println("Tienes " + maxIntentos + " intentos. ¡Buena suerte!");
 
+        while (intentos < maxIntentos && !adivinado) {
+            int numeroUsuario = obtenerEntrada(scanner);
+            adivinado = verificarNumero(numeroUsuario, numeroAleatorio);
+            intentos++;
+            if (!adivinado) {
+                System.out.println("Intentos restantes: " + (maxIntentos - intentos));
+            }
+        }
 
+        if (!adivinado) {
+            System.out.println("Lo siento, has agotado tus intentos. El número era: " + numeroAleatorio);
+        }
 
- }
-     public static int generarNumeroAleatorio() {
-        Random rand = new Random();
-        return rand.nextInt(100) + 1; 
+        scanner.close();
     }
 
-    
     public static int obtenerEntrada(Scanner scanner) {
         int numero;
         while (true) {
@@ -40,6 +47,17 @@ public class JuegoAdivinanza {
                 scanner.next(); 
             }
         }
+    }
 
+    public static boolean verificarNumero(int numeroUsuario, int numeroAleatorio) {
+        if (numeroUsuario == numeroAleatorio) {
+            System.out.println("¡Felicidades! Has adivinado el número.");
+            return true;
+        } else if (numeroUsuario < numeroAleatorio) {
+            System.out.println("El número es mayor. Inténtalo de nuevo.");
+        } else {
+            System.out.println("El número es menor. Inténtalo de nuevo.");
+        }
+        return false;
     }
 }
