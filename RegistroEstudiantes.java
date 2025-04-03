@@ -50,6 +50,23 @@ public class Registro {
 
         scanner.close();
     }
+public static void BuscarEstudiantePorMatricula(Scanner scanner, Estudiantes[] estudiantes, int numEstudiantes) {
+        System.out.println("Ingrese la matricula del estudiante que desea buscar: ");
+        int matriculaBuscada = scanner.nextInt();
+        scanner.nextLine();
 
+        for (int i = 0; i < numEstudiantes; i++) {
+            if (estudiantes[i] != null && estudiantes[i].matricula == matriculaBuscada) {
+                System.out.println("Estudiante encontrado:");
+                System.out.println("Nombre: " + estudiantes[i].nombre);
+                System.out.println("Edad: " + estudiantes[i].edad);
+                System.out.println("Carrera: " + estudiantes[i].carrera);
+                System.out.println("Matricula: " + estudiantes[i].matricula);
+                return;
+            }
+
+        }
+        System.out.println("No se encontró un estudiante con esa matrícula.");
+    }
    
  }
