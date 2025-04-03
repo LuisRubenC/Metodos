@@ -13,8 +13,16 @@ public class JuegoAdivinanza {
 
         System.out.println("¡Bienvenido al juego de adivinanza!");
         System.out.println("Debes adivinar un número entre 1 y 100.");
-        System.out.println("Tienes " + maxIntentos + " intentos. ¡Buena suerte!");
+        System.out.println("Tienes 10 intentos. ¡Buena suerte!");
+
+
+
+ }
+     public static int generarNumeroAleatorio() {
+        Random rand = new Random();
+        return rand.nextInt(100) + 1; 
     }
+
     
     public static int obtenerEntrada(Scanner scanner) {
         int numero;
@@ -32,4 +40,6 @@ public class JuegoAdivinanza {
                 scanner.next(); 
             }
         }
+
+    }
 }
