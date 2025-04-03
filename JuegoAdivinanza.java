@@ -27,7 +27,6 @@ public class JuegoAdivinanza {
         if (!adivinado) {
             System.out.println("Lo siento, has agotado tus intentos. El número era: " + numeroAleatorio);
         }
-
         scanner.close();
     }
 
@@ -47,7 +46,7 @@ public class JuegoAdivinanza {
                 scanner.next(); 
             }
         }
-    }
+    
 
     public static boolean verificarNumero(int numeroUsuario, int numeroAleatorio) {
         if (numeroUsuario == numeroAleatorio) {
@@ -60,4 +59,6 @@ public class JuegoAdivinanza {
         }
         return false;
     }
+
 }
+
