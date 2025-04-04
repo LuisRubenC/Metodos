@@ -48,5 +48,24 @@ public class AgendaContactos {
 
         scanner.close();
     }
+static void cargarContactos() {
+        File archivo = new File(ARCHIVO);
+        if (!archivo.exists()) {
+            System.out.println("No se encontró un archivo de contactos.");
+            return;
+        }
 
+        contactos.clear();
+        try (Scanner scanner = new Scanner(archivo)) {
+            while (scanner.hasNextLine()) {
+                String[] datos = scanner.nextLine().split(" - ");
+                if (datos.length == 3) {
+                    contactos.add(new Contacto(datos[0], datos[1], datos[2]));
+                }
+            }
+            System.out.println("Contactos cargados correctamente.");
+        } catch (IOException e) {
+            System.out.println("Error al cargar los contactos.");
+        }
+    }
 }
