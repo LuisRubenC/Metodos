@@ -1,3 +1,68 @@
+# Gestor de Contactos en Java
+
+## Descripción
+Este código funciona como una agenda electróonica para contactos en la cual se incluyen las funciones necesarias para su operatividad.
+
+## Características
+- Definición de una clase Contacto con atributos: nombre, teléfono y correo.
+- Creación de una lista dinámica ArrayList<Contacto> para almacenar los contactos.
+- Lectura de opciones y datos del usuario utilizando la clase Scanner.
+- Menú interactivo en consola con opciones para agregar, mostrar, buscar, eliminar, guardar y cargar contactos.
+- Agregado de un nuevo contacto solicitando nombre, teléfono y correo al usuario.
+- Impresión ordenada de todos los contactos almacenados en la lista.
+
+## Requisitos
+- Java 8 o superior.
+
+## Instrucciones de Uso
+1. Compilar el código:
+   ```sh
+   Gestor_Contactos.java
+   ```
+2. Ejecutar el programa:
+   ```sh
+   Gestor_Contactos
+   ```
+3. Seleccionar una opción del menú de la agenda.
+
+## Ejemplo de Ejecución
+```
+--- Agenda de Contactos ---
+1. Agregar Contacto
+2. Mostrar Contactos
+3. Buscar Contacto
+4. Eliminar Contacto
+5. Guardar Contactos y Salir
+6. Cargar Contactos desde Archivo
+Seleccione una opción: 1
+Nombre: Ernesto López
+Teléfono: 5589708066
+Correo: ernesto.10pez@gmail.com
+Contacto agregado correctamente.
+```
+
+# Comparación de Códigos - Gestor de Contactos en Java
+
+## Similitudes
+- Ambos programas implementan una agenda de contactos con opciones de agregar, mostrar, buscar y eliminar contactos.
+- Se utiliza un menú interactivo en consola con una estructura repetitiva (do-while) para navegar entre opciones.
+- Al inicio, ambos cargan automáticamente los contactos desde un archivo (contactos.txt).
+- Se almacenan los datos de cada contacto: nombre, teléfono y correo.
+- Los contactos se guardan en un archivo de texto al finalizar la ejecución.
+- Se limita el número máximo de contactos a 100.
+
+## Diferencias Clave
+| Característica            | Java (Métodos)                                    | Primera versión en C                                 |
+|----------------------------|------------------------------------------------|------------------------------------------------|
+| Estructura de datos                 | Usa una clase `Contacto` y una `ArrayList`. | Usa una estructura struct y un arreglo fijo. |
+| Almacenamiento dinámico | Lista dinámica que crece automáticamente. | Arreglo estático de tamaño 100 |
+| Lectura de datos del usuario | Usa `Scanner` con `nextLine()` | Usa `fgets()` y limpia el salto de línea |
+| Modularidad          | 	Más orientado a objetos y modular | Procedural y menos modular |
+| Estilo de programación       | 	Orientado a objetos | Estructurado y procedural |
+
+## Conclusión
+Ambas versiones de la agenda de contactos cumplen la misma funcionalidad básica, pero difieren en su enfoque de implementación. El código en Java aprovecha características modernas como listas dinámicas, orientación a objetos y manejo de errores mediante excepciones, lo que lo hace más modular y escalable. En cambio, el código en C es más básico y estructurado, utilizando arreglos fijos y funciones procedurales, lo cual lo hace más directo pero menos flexible ante cambios o ampliaciones futuras.
+
 # Juego de Adivinanza en Java
 
 ## Descripción
@@ -16,11 +81,11 @@ Este es un juego de adivinanza en el que el jugador debe adivinar un número ale
 ## Instrucciones de Uso
 1. Compilar el código:
    ```sh
-   javac JuegoAdivinanza.java
+   JuegoAdivinanza.java
    ```
 2. Ejecutar el programa:
    ```sh
-   java JuegoAdivinanza
+   JuegoAdivinanza
    ```
 3. Seguir las instrucciones en pantalla para introducir los números y tratar de adivinar el valor correcto.
 
@@ -82,11 +147,11 @@ Este es un sistema de registro de estudiantes desarrollado en Java. Permite regi
 ## Instrucciones de Uso
 1. Compilar el código:
    ```sh
-   javac SistemaRegistroEstudiantes.java
+   SistemaRegistroEstudiantes.java
    ```
 2. Ejecutar el programa:
    ```sh
-   java SistemaRegistroEstudiantes
+   SistemaRegistroEstudiantes
    ```
 3. Seguir las instrucciones en pantalla para agregar, buscar o eliminar estudiantes.
 
@@ -134,4 +199,5 @@ A continuación, se presentan algunos escenarios comunes en el uso del sistema d
 ## Conclusión
 La versión del código es más compacta pero menos modular, ya que toda la lógica está dentro del `main`. En cambio, el código actual usa métodos separados, lo que facilita su mantenimiento y expansión. La versión modular es preferible para proyectos más grandes y escalables, mientras que la compacta es útil para soluciones rápidas y pequeñas aplicaciones de consola.
 
-
+## Enlace a Microsoft Planner
+`https://planner.cloud.microsoft/webui/plan/h9o-sLMBDUe98I5hrmKzPGQAApKT/view/grid?tid=f94bf4d9-8097-4794-adf6-a5466ca28563`
