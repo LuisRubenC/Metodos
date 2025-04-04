@@ -48,5 +48,18 @@ public class AgendaContactos {
 
         scanner.close();
     }
+static void buscarContacto(Scanner scanner) {
+        System.out.print("Ingrese el nombre a buscar: ");
+        String nombreBusqueda = scanner.nextLine();
+
+        for (Contacto c : contactos) {
+            if (c.nombre.equalsIgnoreCase(nombreBusqueda)) {
+                System.out.println("Contacto encontrado: " + c.nombre + " - " + c.telefono + " - " + c.correo);
+                return;
+            }
+        }
+
+        System.out.println("Contacto no encontrado.");
+    }
 
 }
