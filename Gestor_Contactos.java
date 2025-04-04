@@ -48,5 +48,13 @@ public class AgendaContactos {
 
         scanner.close();
     }
-
+static void guardarContactos() {
+        try (PrintWriter writer = new PrintWriter(new FileWriter(ARCHIVO))) {
+            for (Contacto c : contactos) {
+                writer.println(c.nombre + " - " + c.telefono + " - " + c.correo);
+            }
+        } catch (IOException e) {
+            System.out.println("Error al guardar los contactos.");
+        }
+    }
 }
