@@ -68,5 +68,40 @@ public static void BuscarEstudiantePorMatricula(Scanner scanner, Estudiantes[] e
         }
         System.out.println("No se encontró un estudiante con esa matrícula.");
     }
-   
+public static int EliminarEstudiante(Scanner scanner, int numEstudiantes, Estudiantes[] estudiantes) {
+    if (numEstudiantes == 0) {
+        System.out.println("No hay estudiantes registrados.");
+        return numEstudiantes;
+    }
+
+    System.out.print("Ingrese la matrícula del estudiante a eliminar: ");
+    
+    if (!scanner.hasNextInt()) { 
+        System.out.println("Error: Ingrese un número válido.");
+        scanner.next();  
+        return numEstudiantes;
+    }
+    
+    int matriculaEliminar = scanner.nextInt();
+    boolean eliminado = false;
+
+    for (int i = 0; i < numEstudiantes; i++) {
+        if (estudiantes[i].matricula == matriculaEliminar) {
+            for (int j = i; j < numEstudiantes - 1; j++) {
+                estudiantes[j] = estudiantes[j + 1]; 
+            }
+            estudiantes[numEstudiantes - 1] = null;  
+            numEstudiantes--;  
+            eliminado = true;
+            System.out.println("Estudiante eliminado con éxito.");
+            break;
+        }
+    }
+
+    if (!eliminado) {
+        System.out.println("Estudiante no encontrado.");
+    }
+
+    return numEstudiantes;  // Devuelve el nuevo número de estudiantes
+}
  }
