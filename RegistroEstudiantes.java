@@ -50,6 +50,21 @@ public class Registro {
 
         scanner.close();
     }
-
+public static void MostrarEstudiantes(Estudiantes[] estudiantes, int numEstudiantes) {
+        if (numEstudiantes == 0) {
+            System.out.println("No hay estudiantes registrados...");
+            return;
+        }
+        System.out.println("Lista de estudiantes:");
+        for (int i = 0; i < numEstudiantes; i++) {
+            if (estudiantes[i] != null) {
+                System.out.println("---------------------------");
+                System.out.println("Nombre: " + estudiantes[i].nombre);
+                System.out.println("Edad: " + estudiantes[i].edad);
+                System.out.println("Carrera: " + estudiantes[i].carrera);
+                System.out.println("Matrícula: " + estudiantes[i].matricula);
+            }
+        }
+    }
    
  }
