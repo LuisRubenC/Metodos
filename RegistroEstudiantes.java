@@ -1,13 +1,14 @@
 import java.util.Scanner;
 import java.util.Random;
 
-class Estudiantes{
+class Estudiantes {
     String nombre;
     int edad;
     int matricula;
     String carrera;
-}
 
+}
+ 
 public class Registro {
 
     public static void main(String[] args) throws Exception {
@@ -31,12 +32,31 @@ public class Registro {
 
             switch (op) {
                 case 1:
+                    flag = RegistrarEstudiante(scanner, numEstudiantes, estudiantes);
+                    if (flag == 0)
+                        numEstudiantes++;
                     break;
                 case 2:
+                    if (numEstudiantes == 0){
+                      System.out.println("Debes ingresar al menos un estudiante..."); 
+                    }
+                    else
+                    MostrarEstudiantes(estudiantes, numEstudiantes);
                     break;
                 case 3:
+                    if (numEstudiantes == 0){
+                      System.out.println("Debes ingresar al menos un estudiante..."); 
+                    }
+                    else
+                    BuscarEstudiantePorMatricula(scanner, estudiantes, numEstudiantes);
                     break;
                 case 4:
+                     if (numEstudiantes == 0){
+                      System.out.println("Debes ingresar al menos un estudiante..."); 
+                    }
+                    else
+                    EliminarEstudiante(scanner, numEstudiantes, estudiantes);
+
                     break;
                 case 5:
                     System.out.println("Gracias por utilizar el programa...");
@@ -50,7 +70,27 @@ public class Registro {
 
         scanner.close();
     }
-public static void BuscarEstudiantePorMatricula(Scanner scanner, Estudiantes[] estudiantes, int numEstudiantes) {
+
+
+    public static void MostrarEstudiantes(Estudiantes[] estudiantes, int numEstudiantes) {
+        if (numEstudiantes == 0) {
+            System.out.println("No hay estudiantes registrados...");
+            return;
+        }
+        System.out.println("Lista de estudiantes:");
+        for (int i = 0; i < numEstudiantes; i++) {
+            if (estudiantes[i] != null) {
+                System.out.println("---------------------------");
+                System.out.println("Nombre: " + estudiantes[i].nombre);
+                System.out.println("Edad: " + estudiantes[i].edad);
+                System.out.println("Carrera: " + estudiantes[i].carrera);
+                System.out.println("Matrícula: " + estudiantes[i].matricula);
+            }
+        }
+    }
+
+
+    public static void BuscarEstudiantePorMatricula(Scanner scanner, Estudiantes[] estudiantes, int numEstudiantes) {
         System.out.println("Ingrese la matricula del estudiante que desea buscar: ");
         int matriculaBuscada = scanner.nextInt();
         scanner.nextLine();
@@ -68,5 +108,71 @@ public static void BuscarEstudiantePorMatricula(Scanner scanner, Estudiantes[] e
         }
         System.out.println("No se encontró un estudiante con esa matrícula.");
     }
+
+    public static int RegistrarEstudiante(Scanner scanner, int numEstudiantes, Estudiantes[] estudiantes) {
+        int i = 0;
+        Random random = new Random();
+        int numeroAleatorio = 1000 + random.nextInt(9000); // Genera entre 1000 y 9999
+
+        if (numEstudiantes >= 99) {
+            System.out.println("No es posible agregar un estudiante mas, borre alguno y vuelva a intentar...");
+            return 1;
+
+        }
+        Estudiantes nuevoEstudiante = new Estudiantes();
+        System.out.println("Ingrese el nombre del estudiante: ");
+        nuevoEstudiante.nombre = scanner.nextLine();
+        System.out.println("Ingrese la edad del estudiante: ");
+        nuevoEstudiante.edad = scanner.nextInt();
+        scanner.nextLine();
+        System.out.println("Ingrese la carrera del estudiante: ");
+        nuevoEstudiante.carrera = scanner.nextLine();
+        nuevoEstudiante.matricula = 20250000 + numeroAleatorio;
+        estudiantes[numEstudiantes] = nuevoEstudiante;
+        System.out.println("Estudiante registrado correctamente... ");
+        System.out.println("Boleta del estudiante registrado: " + nuevoEstudiante.matricula);
+
+        return 0;
+    }
+
    
- }
+
+   public static int EliminarEstudiante(Scanner scanner, int numEstudiantes, Estudiantes[] estudiantes) {
+    if (numEstudiantes == 0) {
+        System.out.println("No hay estudiantes registrados.");
+        return numEstudiantes;
+    }
+
+    System.out.print("Ingrese la matrícula del estudiante a eliminar: ");
+    
+    if (!scanner.hasNextInt()) { 
+        System.out.println("Error: Ingrese un número válido.");
+        scanner.next();  
+        return numEstudiantes;
+    }
+    
+    int matriculaEliminar = scanner.nextInt();
+    boolean eliminado = false;
+
+    for (int i = 0; i < numEstudiantes; i++) {
+        if (estudiantes[i].matricula == matriculaEliminar) {
+            for (int j = i; j < numEstudiantes - 1; j++) {
+                estudiantes[j] = estudiantes[j + 1]; 
+            }
+            estudiantes[numEstudiantes - 1] = null;  
+            numEstudiantes--;  
+            eliminado = true;
+            System.out.println("Estudiante eliminado con éxito.");
+            break;
+        }
+    }
+
+    if (!eliminado) {
+        System.out.println("Estudiante no encontrado.");
+    }
+
+    return numEstudiantes;  // Devuelve el nuevo número de estudiantes
+}
+
+
+}
