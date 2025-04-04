@@ -49,4 +49,21 @@ public class AgendaContactos {
         scanner.close();
     }
 
+     static void agregarContacto(Scanner scanner) {
+        if (contactos.size() >= 100) {
+            System.out.println("No se pueden agregar más contactos.");
+            return;
+        }
+
+        System.out.print("Nombre: ");
+        String nombre = scanner.nextLine();
+        System.out.print("Teléfono: ");
+        String telefono = scanner.nextLine();
+        System.out.print("Correo: ");
+        String correo = scanner.nextLine();
+
+        contactos.add(new Contacto(nombre, telefono, correo));
+        System.out.println("Contacto agregado correctamente.");
+    }
+
 }
