@@ -48,5 +48,20 @@ public class AgendaContactos {
 
         scanner.close();
     }
+static void eliminarContacto(Scanner scanner) {
+        System.out.print("Ingrese el nombre del contacto a eliminar: ");
+        String nombreEliminar = scanner.nextLine();
 
+        Iterator<Contacto> iterator = contactos.iterator();
+        while (iterator.hasNext()) {
+            Contacto c = iterator.next();
+            if (c.nombre.equalsIgnoreCase(nombreEliminar)) {
+                iterator.remove();
+                System.out.println("Contacto eliminado correctamente.");
+                return;
+            }
+        }
+
+        System.out.println("Contacto no encontrado.");
+    }
 }
